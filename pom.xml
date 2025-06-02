@@ -13,6 +13,7 @@
   <url>https://sethportfolio.vercel.app/</url>
   <modules>
     <module>customer</module>
+    <module>fraud</module>
   </modules>
 
   <properties>
