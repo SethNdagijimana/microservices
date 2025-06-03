@@ -14,11 +14,13 @@
   <modules>
     <module>customer</module>
     <module>fraud</module>
+    <module>eureka-server</module>
   </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
+    <spring-cloud.version>2025.0.0</spring-cloud.version>
   </properties>
 
   <dependencyManagement>
@@ -26,10 +28,21 @@
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
-        <version>3.2.1</version>
+        <version>3.5.0</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
+
+
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+
     </dependencies>
   </dependencyManagement>
 
