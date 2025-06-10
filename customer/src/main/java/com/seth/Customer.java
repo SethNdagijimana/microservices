@@ -22,8 +22,7 @@ public class Customer {
             strategy = GenerationType.SEQUENCE,
             generator = "customer_id_sequence"
     )
-    private int id;
-    private String name;
+    private Integer id;
     private String firstName;
     private String lastName;
     private String email;
