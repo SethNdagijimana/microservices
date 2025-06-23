@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Optional;
-
 @Service
 @AllArgsConstructor
 @Transactional
@@ -59,5 +57,13 @@ public class CustomerService {
             throw new IllegalStateException("Customer with email " + email + " not found");
         }
         customerRepository.deleteByEmail(email);
+    }
+
+    public Customer retrievingCustomerByEmail(String email) {
+        if(!customerRepository.existsByEmail(email)) {
+            throw new IllegalStateException("Customer with email " + email + " not found");
+        }
+        customerRepository.findByEmail(email);
+        return null;
     }
 }

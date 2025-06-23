@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
 
 @Slf4j
 @RestController
@@ -15,7 +14,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class CustomerController {
     private final CustomerService customerService;
-     
+
 //    @PostMapping
 //    public void registerCustomer(@RequestBody @Valid CustomerRegistrationRequest customerRegistrationRequest) {
 //
@@ -57,5 +56,14 @@ public class CustomerController {
         customerService.deleteCustomerByEmail(email);
         return ResponseEntity.ok("Customer deleted successfully");
     }
+
+    @GetMapping("/by-email")
+    public ResponseEntity<Customer> getCustomerByEmail(@RequestParam(name = "email") String email) {
+        log.info("Getting customer by email: {}", email);
+        Customer customer = customerService.retrievingCustomerByEmail(email);
+        return ResponseEntity.ok(customer);
+    }
+
+
 }
  
